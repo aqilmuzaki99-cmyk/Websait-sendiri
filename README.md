@@ -1,2 +1,131 @@
-# Websait-sendiri
-Websait untuk confest
+<?php
+if ($_SERVER["REQUEST_METHOD"] === "POST") {
+
+    $jawaban = $_POST["jawaban"] ?? "";
+    $waktu = date("Y-m-d H:i:s");
+
+    $data = "Jawaban: " . $jawaban . " | Waktu: " . $waktu . PHP_EOL;
+
+    file_put_contents("jawaban.txt", $data, FILE_APPEND);
+
+    echo "OK";
+    exit;
+}
+?>
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Untuk Kamu 💗</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- BACKGROUND HEART -->
+    <div class="hearts"></div>
+
+    <!-- STIKER ANIMASI -->
+    <div class="sticker sticker1">💗</div>
+    <div class="sticker sticker2">🌸</div>
+    <div class="sticker sticker3">💕</div>
+    <div class="sticker sticker4">✨</div>
+    <div class="sticker sticker5">🦋</div>
+
+    <!-- GIF TENOR -->
+    <div class="gif-sticker">
+        <img src="kiss.gif" alt="GIF animasi">
+    </div>
+
+    <!-- TOMBOL MUSIK -->
+    <button id="musicButton" class="music-button">
+        🎵 Musik
+    </button>
+
+    <!-- BACKSOUND -->
+    <audio id="backgroundMusic" loop>
+        <source src="backsound.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- CARD UTAMA -->
+    <main class="container">
+
+        <div class="card" id="questionCard">
+
+            <div class="top-heart">💗</div>
+
+            <h1>Hai Kamu 👋</h1>
+
+            <p class="subtitle">
+                Aku punya sesuatu yang mau aku tanyakan...
+            </p>
+
+            <div class="romantic-image">
+                💕
+            </div>
+
+            <h2>
+                Kamu mau gak jadi<br>
+                <span>pacar aku?</span> 🥺💗
+            </h2>
+
+            <p class="small-text">
+                Jawab jujur yaa...
+            </p>
+
+            <div class="buttons">
+
+                <button id="yesButton" class="yes-button">
+                    💖 Mau / Iya
+                </button>
+
+                <button id="noButton" class="no-button">
+                    😭 Gak / Enggak
+                </button>
+
+            </div>
+
+        </div>
+
+        <!-- CARD BERHASIL -->
+        <div class="card success-card" id="successCard">
+
+            <div class="success-heart">
+                💗
+            </div>
+
+            <h1>Yeyyyy! 🥹💖</h1>
+
+            <h2>
+                Makasih yaaa ❤️
+            </h2>
+
+            <p>
+                Aku seneng banget kamu mau menerima aku.
+                Semoga kita bisa saling menjaga,
+                saling mendukung, dan selalu bahagia. 💕
+            </p>
+
+            <div class="success-gif">
+                <img src="kiss.gif" alt="GIF romantis">
+            </div>
+
+            <div class="love-message">
+                💕 I LIKE YOU 💕
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- CONFETTI -->
+    <div id="confetti"></div>
+
+    <script src="script.js"></script>
+
+</body>
+</html>
