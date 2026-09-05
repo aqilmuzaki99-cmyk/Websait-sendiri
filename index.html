@@ -17,7 +17,7 @@
 <body>
 
     <video class="background-video" autoplay muted loop playsinline>
-        <source src="Video/bacground.mp4" type="Video/mp4">
+        <source src="Video/bacground.mp4" type="video/mp4">
     </video>
 
     <div class="video-overlay"></div>
@@ -27,16 +27,33 @@
     <div class="gold-dots"></div>
 
     <div class="music-player">
-        <button id="musicButton">♫</button>
+
+        <button id="musicButton" type="button">
+            ▶
+        </button>
 
         <div class="music-info">
-            <span>Our Song</span>
-            <small>Tap to play</small>
+            <span id="musicTitle">Our Song</span>
+            <small id="musicStatus">Klik untuk memutar</small>
         </div>
 
-        <audio id="music" loop>
+        <div class="music-volume">
+            <span>🔊</span>
+
+            <input
+                type="range"
+                id="volumeControl"
+                min="0"
+                max="1"
+                step="0.01"
+                value="0.7"
+            >
+        </div>
+
+        <audio id="music" loop preload="auto">
             <source src="musik/lagu.mp3" type="audio/mpeg">
         </audio>
+
     </div>
 
     <div class="gif-sticker">
@@ -76,9 +93,11 @@
 
         </section>
 
+
         <section class="intro section">
 
             <div class="section-title">
+
                 <span>✦ OUR STORY ✦</span>
 
                 <h2>
@@ -90,16 +109,32 @@
                     Dan mungkin halaman ini adalah salah satu
                     bagian kecil dari cerita yang akan selalu kita ingat.
                 </p>
+
             </div>
+
 
             <div class="intro-card">
 
                 <div class="intro-decoration">
-                    <div class="big-heart">♡</div>
-                    <div class="small-heart heart-one">♥</div>
-                    <div class="small-heart heart-two">♡</div>
-                    <div class="small-heart heart-three">✦</div>
+
+                    <div class="big-heart">
+                        ♡
+                    </div>
+
+                    <div class="small-heart heart-one">
+                        ♥
+                    </div>
+
+                    <div class="small-heart heart-two">
+                        ♡
+                    </div>
+
+                    <div class="small-heart heart-three">
+                        ✦
+                    </div>
+
                 </div>
+
 
                 <div class="intro-text">
 
@@ -127,11 +162,14 @@
 
         </section>
 
+
         <section class="timeline-section section">
 
             <div class="section-title">
 
-                <span>✦ OUR JOURNEY ✦</span>
+                <span>
+                    ✦ OUR JOURNEY ✦
+                </span>
 
                 <h2>
                     Perjalanan Kecil Kita
@@ -142,6 +180,7 @@
                 </p>
 
             </div>
+
 
             <div class="timeline">
 
@@ -174,6 +213,7 @@
 
                 </div>
 
+
                 <div class="timeline-item">
 
                     <div class="timeline-dot">
@@ -203,6 +243,7 @@
 
                 </div>
 
+
                 <div class="timeline-item">
 
                     <div class="timeline-dot">
@@ -231,6 +272,7 @@
                     </div>
 
                 </div>
+
 
                 <div class="timeline-item">
 
@@ -265,11 +307,14 @@
 
         </section>
 
+
         <section class="gallery-section section">
 
             <div class="section-title">
 
-                <span>✦ MEMORY VAULT ✦</span>
+                <span>
+                    ✦ MEMORY VAULT ✦
+                </span>
 
                 <h2>
                     Kotak Kenangan
@@ -281,9 +326,14 @@
 
             </div>
 
+
             <div class="memory-grid">
 
-                <div class="memory-card" data-message="Senyummu selalu berhasil membuat hari terasa lebih baik. ♡">
+                <div
+                    class="memory-card"
+                    data-message="Senyummu selalu berhasil membuat hari terasa lebih baik. ♡"
+                >
+
                     <div class="memory-icon">
                         ♡
                     </div>
@@ -299,9 +349,15 @@
                     <small>
                         Click to open
                     </small>
+
                 </div>
 
-                <div class="memory-card" data-message="Momen sederhana terkadang justru menjadi kenangan yang paling berharga.">
+
+                <div
+                    class="memory-card"
+                    data-message="Momen sederhana terkadang justru menjadi kenangan yang paling berharga."
+                >
+
                     <div class="memory-icon">
                         ✦
                     </div>
@@ -317,9 +373,15 @@
                     <small>
                         Click to open
                     </small>
+
                 </div>
 
-                <div class="memory-card" data-message="Semoga masih banyak cerita kecil yang bisa kita simpan.">
+
+                <div
+                    class="memory-card"
+                    data-message="Semoga masih banyak cerita kecil yang bisa kita simpan."
+                >
+
                     <div class="memory-icon">
                         ❀
                     </div>
@@ -335,9 +397,15 @@
                     <small>
                         Click to open
                     </small>
+
                 </div>
 
-                <div class="memory-card" data-message="Terima kasih sudah menjadi bagian dari cerita yang indah ini.">
+
+                <div
+                    class="memory-card"
+                    data-message="Terima kasih sudah menjadi bagian dari cerita yang indah ini."
+                >
+
                     <div class="memory-icon">
                         ♡
                     </div>
@@ -353,9 +421,15 @@
                     <small>
                         Click to open
                     </small>
+
                 </div>
 
-                <div class="memory-card" data-message="Hal kecil yang mungkin terlihat biasa, ternyata punya arti yang besar.">
+
+                <div
+                    class="memory-card"
+                    data-message="Hal kecil yang mungkin terlihat biasa, ternyata punya arti yang besar."
+                >
+
                     <div class="memory-icon">
                         ✧
                     </div>
@@ -371,9 +445,15 @@
                     <small>
                         Click to open
                     </small>
+
                 </div>
 
-                <div class="memory-card" data-message="Satu kenangan, satu cerita, satu alasan untuk tersenyum lagi. ♡">
+
+                <div
+                    class="memory-card"
+                    data-message="Satu kenangan, satu cerita, satu alasan untuk tersenyum lagi. ♡"
+                >
+
                     <div class="memory-icon">
                         ♥
                     </div>
@@ -389,15 +469,18 @@
                     <small>
                         Click to open
                     </small>
+
                 </div>
 
             </div>
+
 
             <div class="memory-message" id="memoryMessage">
                 Klik salah satu kartu di atas ♡
             </div>
 
         </section>
+
 
         <section class="reasons-section section">
 
@@ -416,6 +499,7 @@
                 </p>
 
             </div>
+
 
             <div class="reasons-grid">
 
@@ -439,6 +523,7 @@
                     </div>
                 </div>
 
+
                 <div class="reason-card">
                     <div class="reason-inner">
 
@@ -457,6 +542,7 @@
 
                     </div>
                 </div>
+
 
                 <div class="reason-card">
                     <div class="reason-inner">
@@ -478,6 +564,7 @@
                     </div>
                 </div>
 
+
                 <div class="reason-card">
                     <div class="reason-inner">
 
@@ -497,6 +584,7 @@
 
                     </div>
                 </div>
+
 
                 <div class="reason-card">
                     <div class="reason-inner">
@@ -518,6 +606,7 @@
                     </div>
                 </div>
 
+
                 <div class="reason-card">
                     <div class="reason-inner">
 
@@ -537,6 +626,7 @@
 
                     </div>
                 </div>
+
 
                 <div class="reason-card">
                     <div class="reason-inner">
@@ -558,6 +648,7 @@
                     </div>
                 </div>
 
+
                 <div class="reason-card">
                     <div class="reason-inner">
 
@@ -578,6 +669,7 @@
                     </div>
                 </div>
 
+
                 <div class="reason-card">
                     <div class="reason-inner">
 
@@ -597,6 +689,7 @@
 
                     </div>
                 </div>
+
 
                 <div class="reason-card">
                     <div class="reason-inner">
@@ -621,6 +714,7 @@
             </div>
 
         </section>
+
 
         <section class="final-section section" id="final">
 
@@ -669,11 +763,14 @@
 
     </main>
 
+
     <div id="confetti"></div>
+
 
     <footer>
         Made with ♡ just for you
     </footer>
+
 
     <script src="script.js"></script>
 
