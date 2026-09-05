@@ -10,11 +10,6 @@ const successCard = document.getElementById("successCard");
 const confettiContainer =
     document.getElementById("confetti");
 
-
-// =========================
-// MUSIC
-// =========================
-
 let musicPlaying = false;
 
 musicButton.addEventListener("click", () => {
@@ -37,11 +32,6 @@ musicButton.addEventListener("click", () => {
     }
 
 });
-
-
-// =========================
-// FLOATING HEART
-// =========================
 
 function createHeart() {
 
@@ -79,11 +69,6 @@ function createHeart() {
 
 setInterval(createHeart, 500);
 
-
-// =========================
-// TOMBOL "GAK"
-// =========================
-
 function moveNoButton() {
 
     const maxX =
@@ -120,14 +105,8 @@ noButton.addEventListener(
     moveNoButton
 );
 
-
-// =========================
-// TOMBOL "MAU"
-// =========================
-
 yesButton.addEventListener("click", () => {
 
-    // Kirim jawaban ke PHP
     fetch("index.php", {
 
         method: "POST",
@@ -141,20 +120,9 @@ yesButton.addEventListener("click", () => {
 
     });
 
-
-    // Sembunyikan pertanyaan
     questionCard.style.display = "none";
-
-
-    // Tampilkan halaman sukses
     successCard.style.display = "block";
-
-
-    // Confetti
     createConfetti();
-
-
-    // Musik otomatis jika sebelumnya belum dimainkan
     if (!musicPlaying) {
 
         music.play()
@@ -167,16 +135,10 @@ yesButton.addEventListener("click", () => {
 
             })
             .catch(() => {
-                // Browser bisa memblokir autoplay
             });
     }
 
 });
-
-
-// =========================
-// CONFETTI
-// =========================
 
 function createConfetti() {
 
