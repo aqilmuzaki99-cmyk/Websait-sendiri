@@ -1,173 +1,202 @@
-const music = document.getElementById("backgroundMusic");
-const musicButton = document.getElementById("musicButton");
+const music =
+    document.getElementById("backgroundMusic");
 
-const yesButton = document.getElementById("yesButton");
-const noButton = document.getElementById("noButton");
+const musicButton =
+    document.getElementById("musicButton");
 
-const questionCard = document.getElementById("questionCard");
-const successCard = document.getElementById("successCard");
+const yesButton =
+    document.getElementById("yesButton");
+
+const noButton =
+    document.getElementById("noButton");
+
+const questionCard =
+    document.getElementById("questionCard");
+
+const successCard =
+    document.getElementById("successCard");
 
 const confettiContainer =
     document.getElementById("confetti");
 
 let musicPlaying = false;
 
-musicButton.addEventListener("click", () => {
+musicButton.addEventListener(
+    "click",
+    () => {
+        if (!musicPlaying) {
+            music.play()
+                .then(() => {
+                    musicPlaying = true;
+                    musicButton.innerHTML =
+                        "🔊 Musik ON";
+                })
+                .catch(() => {
 
-    if (!musicPlaying) {
+                    alert(
+                        "Musik belum bisa diputar. Coba klik lagi."
+                    );
 
-        music.play();
+                });
 
-        musicPlaying = true;
+        } else {
+            music.pause();
+            musicPlaying = false;
+            musicButton.innerHTML =
+                "🎵 Musik";
+        }
 
-        musicButton.innerHTML = "🔊 Musik ON";
-
-    } else {
-
-        music.pause();
-
-        musicPlaying = false;
-
-        musicButton.innerHTML = "🎵 Musik";
     }
-
-});
-
+);
 function createHeart() {
-
-    const heart = document.createElement("div");
+    const heart =
+        document.createElement("div");
 
     heart.className = "heart";
 
-    const hearts = [
+    const heartList = [
+
         "💗",
         "💕",
         "💖",
         "💓",
         "💞",
-        "💘"
+        "💘",
+        "❤️"
+
     ];
-
     heart.innerHTML =
-        hearts[Math.floor(Math.random() * hearts.length)];
-
+        heartList[
+            Math.floor(
+                Math.random() *
+                heartList.length
+            )
+        ];
     heart.style.left =
         Math.random() * 100 + "vw";
 
     heart.style.fontSize =
-        (15 + Math.random() * 25) + "px";
+        (15 + Math.random() * 25)
+        + "px";
 
     heart.style.animationDuration =
-        (4 + Math.random() * 5) + "s";
-
-    document.body.appendChild(heart);
-
-    setTimeout(() => {
-        heart.remove();
-    }, 9000);
+        (4 + Math.random() * 5)
+        + "s";
+    document.body.appendChild(
+        heart
+    );
+    setTimeout(
+        () => {
+            heart.remove();
+        },
+        9000
+    );
 }
 
-setInterval(createHeart, 500);
-
+setInterval(
+    createHeart,
+    500
+);
 function moveNoButton() {
 
     const maxX =
-        window.innerWidth - noButton.offsetWidth - 30;
-
+        window.innerWidth -
+        noButton.offsetWidth -
+        30;
     const maxY =
-        window.innerHeight - noButton.offsetHeight - 30;
-
+        window.innerHeight -
+        noButton.offsetHeight -
+        30;
     const x =
-        Math.max(10, Math.random() * maxX);
-
+        Math.max(
+            10,
+            Math.random() * maxX
+        );
     const y =
-        Math.max(10, Math.random() * maxY);
-
-    noButton.style.position = "fixed";
-
-    noButton.style.left = x + "px";
-
-    noButton.style.top = y + "px";
+        Math.max(
+            10,
+            Math.random() * maxY
+        );
+    noButton.style.position =
+        "fixed";
+    noButton.style.left =
+        x + "px";
+    noButton.style.top =
+        y + "px";
 }
-
 noButton.addEventListener(
     "mouseenter",
     moveNoButton
 );
-
 noButton.addEventListener(
     "touchstart",
     moveNoButton
 );
-
 noButton.addEventListener(
     "click",
     moveNoButton
 );
+yesButton.addEventListener(
+    "click",
+    () => {
+        questionCard.style.display =
+            "none";
+        successCard.style.display =
+            "block";
+        
+        createConfetti();
+        if (!musicPlaying) {
+            music.play()
+                .then(() => {
+                    musicPlaying = true;
+                    musicButton.innerHTML =
+                        "🔊 Musik ON";
+                })
+                .catch(() => {
+                });
+        }
 
-yesButton.addEventListener("click", () => {
-
-    fetch("index.php", {
-
-        method: "POST",
-
-        headers: {
-            "Content-Type":
-                "application/x-www-form-urlencoded"
-        },
-
-        body: "jawaban=Mau/Iya"
-
-    });
-
-    questionCard.style.display = "none";
-    successCard.style.display = "block";
-    createConfetti();
-    if (!musicPlaying) {
-
-        music.play()
-            .then(() => {
-
-                musicPlaying = true;
-
-                musicButton.innerHTML =
-                    "🔊 Musik ON";
-
-            })
-            .catch(() => {
-            });
     }
-
-});
+);
 
 function createConfetti() {
 
-    for (let i = 0; i < 120; i++) {
-
+    for (
+        let i = 0;
+        i < 120;
+        i++
+    ) {
         const confetti =
             document.createElement("div");
-
-        confetti.className = "confetti";
-
+        confetti.className =
+            "confetti";
         confetti.style.left =
-            Math.random() * 100 + "vw";
-
+            Math.random() * 100
+            + "vw";
         confetti.style.animationDelay =
-            Math.random() * 1.5 + "s";
-
+            Math.random() * 1.5
+            + "s";
         confetti.style.width =
-            (5 + Math.random() * 8) + "px";
-
+            (5 + Math.random() * 8)
+            + "px";
         confetti.style.height =
-            (5 + Math.random() * 8) + "px";
-
+            (5 + Math.random() * 8)
+            + "px";
         confetti.style.background =
-            `hsl(${Math.random() * 360}, 80%, 70%)`;
-
-        confettiContainer.appendChild(confetti);
-
-        setTimeout(() => {
-            confetti.remove();
-        }, 4000);
+            `hsl(
+                ${Math.random() * 360},
+                80%,
+                70%
+            )`;
+        confettiContainer.appendChild(
+            confetti
+        );
+        setTimeout(
+            () => {
+                confetti.remove();
+            },
+            4000
+        );
     }
+
 }
