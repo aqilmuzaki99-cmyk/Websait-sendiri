@@ -591,6 +591,28 @@ main {
     font-weight: 600;
 }
 
+.answer-box {
+    max-width: 600px;
+    margin: 25px auto 0;
+    padding: 18px 25px;
+    border-radius: 18px;
+    background: rgba(249, 233, 225, 0.8);
+    border: 1px solid rgba(184, 139, 109, 0.3);
+    color: #79545a;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 21px;
+    text-align: center;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.5s ease;
+    box-sizing: border-box;
+}
+
+.answer-box.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 .music-player {
     position: fixed;
     top: 20px;
@@ -865,6 +887,12 @@ footer {
 
     .final-card {
         padding: 60px 20px;
+    }
+
+    .answer-box {
+        width: 90%;
+        font-size: 19px;
+        padding: 15px 18px;
     }
 
 }
