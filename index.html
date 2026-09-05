@@ -1,778 +1,87 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<video class="background-video" autoplay muted loop playsinline>
+    <source src="Video/bacground.mp4" type="video/mp4">
+</video>
 
-    <title>A Little Space Just for You 💗</title>
+<div class="music-player">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <button id="musicButton" type="button">
+        ▶
+    </button>
 
-    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <div class="music-info">
+        <span id="musicTitle">Our Song</span>
+        <small id="musicStatus">Klik untuk memutar</small>
+    </div>
 
-    <link rel="stylesheet" href="style.css">
-</head>
+    <div class="music-volume">
+        <span>🔊</span>
 
-<body>
+        <input
+            type="range"
+            id="volumeControl"
+            min="0"
+            max="1"
+            step="0.01"
+            value="0.7"
+        >
+    </div>
 
-    <video class="background-video" autoplay muted loop playsinline>
-        <source src="Video/bacground.mp4" type="video/mp4">
-    </video>
+    <audio id="music" loop preload="auto">
+        <source src="musik/lagu.mp3" type="audio/mpeg">
+    </audio>
 
-    <div class="video-overlay"></div>
+</div>
 
-    <div class="stars"></div>
-    <div class="petals"></div>
-    <div class="gold-dots"></div>
+<div class="gif-sticker">
+    <img src="gif/gif-gifkk.gif" alt="GIF romantis">
+</div>
 
-    <div class="music-player">
 
-        <button id="musicButton" type="button">
-            ▶
-        </button>
+<section class="final-section section" id="final">
 
-        <div class="music-info">
-            <span id="musicTitle">Our Song</span>
-            <small id="musicStatus">Klik untuk memutar</small>
+    <div class="final-card">
+
+        <div class="final-heart">
+            ♡
         </div>
 
-        <div class="music-volume">
-            <span>🔊</span>
+        <span class="gold-label">
+            ONE LAST QUESTION
+        </span>
 
-            <input
-                type="range"
-                id="volumeControl"
-                min="0"
-                max="1"
-                step="0.01"
-                value="0.7"
-            >
+        <h2>
+            Ada satu hal lagi
+            yang ingin aku tanyakan...
+        </h2>
+
+        <p>
+            Setelah semua cerita kecil yang ada di halaman ini,
+            aku cuma ingin tahu satu hal.
+        </p>
+
+        <div class="question-box">
+            Kamu mau gak kita membuat
+            lebih banyak cerita bersama?
         </div>
 
-        <audio id="music" loop preload="auto">
-            <source src="musik/lagu.mp3" type="audio/mpeg">
-        </audio>
+        <div class="final-buttons">
+
+            <button id="yesButton" class="yes-button">
+                💗 Mau!
+            </button>
+
+            <button id="noButton" class="no-button">
+                Pikir-pikir Dulu
+            </button>
+
+        </div>
+
+        <div id="finalMessage"></div>
+
+        <div class="answer-box" id="answerBox">
+            Jawaban kamu akan muncul di sini ♡
+        </div>
 
     </div>
 
-    <div class="gif-sticker">
-        <img src="gif/gif-gifkk.gif" alt="GIF romantis">
-    </div>
-
-    <main>
-
-        <section class="hero" id="home">
-
-            <div class="hero-content">
-
-                <div class="mini-text">
-                    ✦ A LITTLE SPACE MADE FOR YOU ✦
-                </div>
-
-                <h1>
-                    A Little Space
-                    <span>Just for You</span>
-                </h1>
-
-                <p>
-                    Ada sesuatu yang ingin aku sampaikan.
-                    Mungkin sederhana, tapi dibuat khusus untuk kamu.
-                </p>
-
-                <button class="main-button" id="startButton">
-                    Buka Pesan Ini
-                    <span>♡</span>
-                </button>
-
-                <div class="scroll-text">
-                    scroll untuk melanjutkan ↓
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <section class="intro section">
-
-            <div class="section-title">
-
-                <span>✦ OUR STORY ✦</span>
-
-                <h2>
-                    Our Story Begins Here
-                </h2>
-
-                <p>
-                    Setiap cerita punya awal.
-                    Dan mungkin halaman ini adalah salah satu
-                    bagian kecil dari cerita yang akan selalu kita ingat.
-                </p>
-
-            </div>
-
-
-            <div class="intro-card">
-
-                <div class="intro-decoration">
-
-                    <div class="big-heart">
-                        ♡
-                    </div>
-
-                    <div class="small-heart heart-one">
-                        ♥
-                    </div>
-
-                    <div class="small-heart heart-two">
-                        ♡
-                    </div>
-
-                    <div class="small-heart heart-three">
-                        ✦
-                    </div>
-
-                </div>
-
-
-                <div class="intro-text">
-
-                    <span class="gold-label">
-                        A MEMORY TO KEEP
-                    </span>
-
-                    <h3>
-                        Tentang kamu dan aku
-                    </h3>
-
-                    <p>
-                        Ada beberapa orang yang datang lalu pergi.
-                        Tapi ada juga seseorang yang kehadirannya
-                        membuat hari biasa terasa sedikit lebih indah.
-                    </p>
-
-                    <p>
-                        Terima kasih sudah menjadi bagian dari cerita ini. ♡
-                    </p>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <section class="timeline-section section">
-
-            <div class="section-title">
-
-                <span>
-                    ✦ OUR JOURNEY ✦
-                </span>
-
-                <h2>
-                    Perjalanan Kecil Kita
-                </h2>
-
-                <p>
-                    Beberapa momen yang layak disimpan dalam ingatan.
-                </p>
-
-            </div>
-
-
-            <div class="timeline">
-
-                <div class="timeline-item">
-
-                    <div class="timeline-dot">
-                        ♡
-                    </div>
-
-                    <div class="timeline-card">
-
-                        <div class="timeline-number">
-                            01
-                        </div>
-
-                        <span>
-                            FIRST MOMENT
-                        </span>
-
-                        <h3>
-                            Hari Pertama Ketemu
-                        </h3>
-
-                        <p>
-                            Tulis cerita tentang pertama kali kalian
-                            bertemu di sini.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="timeline-item">
-
-                    <div class="timeline-dot">
-                        ♡
-                    </div>
-
-                    <div class="timeline-card">
-
-                        <div class="timeline-number">
-                            02
-                        </div>
-
-                        <span>
-                            SPECIAL DAY
-                        </span>
-
-                        <h3>
-                            Jalan-jalan Pertama
-                        </h3>
-
-                        <p>
-                            Ceritakan perjalanan atau kegiatan pertama
-                            yang kalian lakukan bersama.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="timeline-item">
-
-                    <div class="timeline-dot">
-                        ♡
-                    </div>
-
-                    <div class="timeline-card">
-
-                        <div class="timeline-number">
-                            03
-                        </div>
-
-                        <span>
-                            FUNNY MOMENT
-                        </span>
-
-                        <h3>
-                            Momen Paling Lucu
-                        </h3>
-
-                        <p>
-                            Tulis kejadian paling lucu yang sampai sekarang
-                            masih bikin kalian tersenyum.
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="timeline-item">
-
-                    <div class="timeline-dot">
-                        ♡
-                    </div>
-
-                    <div class="timeline-card">
-
-                        <div class="timeline-number">
-                            04
-                        </div>
-
-                        <span>
-                            SPECIAL MEMORY
-                        </span>
-
-                        <h3>
-                            Momen yang Tidak Terlupakan
-                        </h3>
-
-                        <p>
-                            Isi dengan cerita atau kenangan yang paling
-                            berarti untuk kalian.
-                        </p>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <section class="gallery-section section">
-
-            <div class="section-title">
-
-                <span>
-                    ✦ MEMORY VAULT ✦
-                </span>
-
-                <h2>
-                    Kotak Kenangan
-                </h2>
-
-                <p>
-                    Klik salah satu kartu untuk membuka pesan rahasia.
-                </p>
-
-            </div>
-
-
-            <div class="memory-grid">
-
-                <div
-                    class="memory-card"
-                    data-message="Senyummu selalu berhasil membuat hari terasa lebih baik. ♡"
-                >
-
-                    <div class="memory-icon">
-                        ♡
-                    </div>
-
-                    <span>
-                        MEMORY 01
-                    </span>
-
-                    <h3>
-                        A Little Smile
-                    </h3>
-
-                    <small>
-                        Click to open
-                    </small>
-
-                </div>
-
-
-                <div
-                    class="memory-card"
-                    data-message="Momen sederhana terkadang justru menjadi kenangan yang paling berharga."
-                >
-
-                    <div class="memory-icon">
-                        ✦
-                    </div>
-
-                    <span>
-                        MEMORY 02
-                    </span>
-
-                    <h3>
-                        Little Moment
-                    </h3>
-
-                    <small>
-                        Click to open
-                    </small>
-
-                </div>
-
-
-                <div
-                    class="memory-card"
-                    data-message="Semoga masih banyak cerita kecil yang bisa kita simpan."
-                >
-
-                    <div class="memory-icon">
-                        ❀
-                    </div>
-
-                    <span>
-                        MEMORY 03
-                    </span>
-
-                    <h3>
-                        Beautiful Day
-                    </h3>
-
-                    <small>
-                        Click to open
-                    </small>
-
-                </div>
-
-
-                <div
-                    class="memory-card"
-                    data-message="Terima kasih sudah menjadi bagian dari cerita yang indah ini."
-                >
-
-                    <div class="memory-icon">
-                        ♡
-                    </div>
-
-                    <span>
-                        MEMORY 04
-                    </span>
-
-                    <h3>
-                        Just Us
-                    </h3>
-
-                    <small>
-                        Click to open
-                    </small>
-
-                </div>
-
-
-                <div
-                    class="memory-card"
-                    data-message="Hal kecil yang mungkin terlihat biasa, ternyata punya arti yang besar."
-                >
-
-                    <div class="memory-icon">
-                        ✧
-                    </div>
-
-                    <span>
-                        MEMORY 05
-                    </span>
-
-                    <h3>
-                        Sweet Memory
-                    </h3>
-
-                    <small>
-                        Click to open
-                    </small>
-
-                </div>
-
-
-                <div
-                    class="memory-card"
-                    data-message="Satu kenangan, satu cerita, satu alasan untuk tersenyum lagi. ♡"
-                >
-
-                    <div class="memory-icon">
-                        ♥
-                    </div>
-
-                    <span>
-                        MEMORY 06
-                    </span>
-
-                    <h3>
-                        Forever Moment
-                    </h3>
-
-                    <small>
-                        Click to open
-                    </small>
-
-                </div>
-
-            </div>
-
-
-            <div class="memory-message" id="memoryMessage">
-                Klik salah satu kartu di atas ♡
-            </div>
-
-        </section>
-
-
-        <section class="reasons-section section">
-
-            <div class="section-title">
-
-                <span>
-                    ✦ LITTLE THINGS ✦
-                </span>
-
-                <h2>
-                    10 Things I Love About You
-                </h2>
-
-                <p>
-                    Klik kartu satu per satu untuk membukanya.
-                </p>
-
-            </div>
-
-
-            <div class="reasons-grid">
-
-                <div class="reason-card">
-                    <div class="reason-inner">
-
-                        <div class="reason-front">
-                            <span>01</span>
-                            <strong>♡</strong>
-                            <p>Tap me</p>
-                        </div>
-
-                        <div class="reason-back">
-                            <span>01</span>
-                            <p>
-                                Senyummu punya cara sendiri
-                                untuk membuat suasana lebih hangat.
-                            </p>
-                        </div>
-
-                    </div>
-                </div>
-
-
-                <div class="reason-card">
-                    <div class="reason-inner">
-
-                        <div class="reason-front">
-                            <span>02</span>
-                            <strong>♡</strong>
-                            <p>Tap me</p>
-                        </div>
-
-                        <div class="reason-back">
-                            <span>02</span>
-                            <p>
-                                Aku suka caramu menjadi dirimu sendiri.
-                            </p>
-                        </div>
-
-                    </div>
-                </div>
-
-
-                <div class="reason-card">
-                    <div class="reason-inner">
-
-                        <div class="reason-front">
-                            <span>03</span>
-                            <strong>♡</strong>
-                            <p>Tap me</p>
-                        </div>
-
-                        <div class="reason-back">
-                            <span>03</span>
-                            <p>
-                                Hal kecil yang kamu lakukan
-                                kadang punya arti yang besar.
-                            </p>
-                        </div>
-
-                    </div>
-                </div>
-
-
-                <div class="reason-card">
-                    <div class="reason-inner">
-
-                        <div class="reason-front">
-                            <span>04</span>
-                            <strong>♡</strong>
-                            <p>Tap me</p>
-                        </div>
-
-                        <div class="reason-back">
-                            <span>04</span>
-                            <p>
-                                Kamu bisa membuat percakapan sederhana
-                                menjadi menyenangkan.
-                            </p>
-                        </div>
-
-                    </div>
-                </div>
-
-
-                <div class="reason-card">
-                    <div class="reason-inner">
-
-                        <div class="reason-front">
-                            <span>05</span>
-                            <strong>♡</strong>
-                            <p>Tap me</p>
-                        </div>
-
-                        <div class="reason-back">
-                            <span>05</span>
-                            <p>
-                                Aku menghargai perhatian kecil
-                                yang kamu berikan.
-                            </p>
-                        </div>
-
-                    </div>
-                </div>
-
-
-                <div class="reason-card">
-                    <div class="reason-inner">
-
-                        <div class="reason-front">
-                            <span>06</span>
-                            <strong>♡</strong>
-                            <p>Tap me</p>
-                        </div>
-
-                        <div class="reason-back">
-                            <span>06</span>
-                            <p>
-                                Kehadiranmu membuat hari biasa
-                                terasa sedikit berbeda.
-                            </p>
-                        </div>
-
-                    </div>
-                </div>
-
-
-                <div class="reason-card">
-                    <div class="reason-inner">
-
-                        <div class="reason-front">
-                            <span>07</span>
-                            <strong>♡</strong>
-                            <p>Tap me</p>
-                        </div>
-
-                        <div class="reason-back">
-                            <span>07</span>
-                            <p>
-                                Aku suka cara kita bisa tertawa
-                                karena hal-hal sederhana.
-                            </p>
-                        </div>
-
-                    </div>
-                </div>
-
-
-                <div class="reason-card">
-                    <div class="reason-inner">
-
-                        <div class="reason-front">
-                            <span>08</span>
-                            <strong>♡</strong>
-                            <p>Tap me</p>
-                        </div>
-
-                        <div class="reason-back">
-                            <span>08</span>
-                            <p>
-                                Kamu membuat banyak momen kecil
-                                menjadi sesuatu yang berharga.
-                            </p>
-                        </div>
-
-                    </div>
-                </div>
-
-
-                <div class="reason-card">
-                    <div class="reason-inner">
-
-                        <div class="reason-front">
-                            <span>09</span>
-                            <strong>♡</strong>
-                            <p>Tap me</p>
-                        </div>
-
-                        <div class="reason-back">
-                            <span>09</span>
-                            <p>
-                                Aku menghargai semua cerita
-                                dan waktu yang pernah kita bagi.
-                            </p>
-                        </div>
-
-                    </div>
-                </div>
-
-
-                <div class="reason-card">
-                    <div class="reason-inner">
-
-                        <div class="reason-front">
-                            <span>10</span>
-                            <strong>♡</strong>
-                            <p>Tap me</p>
-                        </div>
-
-                        <div class="reason-back">
-                            <span>10</span>
-                            <p>
-                                Alasan terakhir?
-                                Karena kamu adalah kamu. ♡
-                            </p>
-                        </div>
-
-                    </div>
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <section class="final-section section" id="final">
-
-            <div class="final-card">
-
-                <div class="final-heart">
-                    ♡
-                </div>
-
-                <span class="gold-label">
-                    ONE LAST QUESTION
-                </span>
-
-                <h2>
-                    Ada satu hal lagi
-                    yang ingin aku tanyakan...
-                </h2>
-
-                <p>
-                    Setelah semua cerita kecil yang ada di halaman ini,
-                    aku cuma ingin tahu satu hal.
-                </p>
-
-                <div class="question-box">
-                    Kamu mau gak kita membuat
-                    lebih banyak cerita bersama?
-                </div>
-
-                <div class="final-buttons">
-
-                    <button id="yesButton" class="yes-button">
-                        💗 Mau!
-                    </button>
-
-                    <button id="noButton" class="no-button">
-                        Pikir-pikir Dulu
-                    </button>
-
-                </div>
-
-                <div id="finalMessage"></div>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <div id="confetti"></div>
-
-
-    <footer>
-        Made with ♡ just for you
-    </footer>
-
-
-    <script src="script.js"></script>
-
-</body>
-</html>
+</section>
