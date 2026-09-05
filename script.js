@@ -1,68 +1,194 @@
+const startButton = document.getElementById("startButton");
 const yesButton = document.getElementById("yesButton");
 const noButton = document.getElementById("noButton");
-const questionCard = document.getElementById("questionCard");
-const successCard = document.getElementById("successCard");
+const finalMessage = document.getElementById("finalMessage");
 const confettiContainer = document.getElementById("confetti");
+const musicButton = document.getElementById("musicButton");
+const music = document.getElementById("music");
+const memoryMessage = document.getElementById("memoryMessage");
 
-function createHeart() {
-    const heart = document.createElement("div");
-    heart.className = "heart";
+startButton.addEventListener("click", () => {
+    document.getElementById("final").scrollIntoView({
+        behavior: "smooth"
+    });
+});
 
-    const hearts = ["💗", "💕", "💖", "💓", "💞", "💘", "❤️"];
+let musicPlaying = false;
 
-    heart.innerHTML = hearts[Math.floor(Math.random() * hearts.length)];
-    heart.style.left = Math.random() * 100 + "vw";
-    heart.style.fontSize = 15 + Math.random() * 25 + "px";
-    heart.style.animationDuration = 4 + Math.random() * 5 + "s";
+musicButton.addEventListener("click", () => {
+    if (musicPlaying) {
+        music.pause();
+        musicButton.textContent = "♫";
+        musicPlaying = false;
+    } else {
+        music.play()
+            .then(() => {
+                musicButton.textContent = "❚❚";
+                musicPlaying = true;
+            })
+            .catch(() => {
+                musicButton.textContent = "♫";
+            });
+    }
+});
 
-    document.body.appendChild(heart);
+document.querySelectorAll(".reason-card").forEach(card => {
+    card.addEventListener("click", () => {
+        card.classList.toggle("flipped");
+    });
+});
 
-    setTimeout(() => {
-        heart.remove();
-    }, 9000);
-}
+document.querySelectorAll(".memory-card").forEach(card => {
+    card.addEventListener("click", () => {
+        memoryMessage.textContent = card.dataset.message;
 
-setInterval(createHeart, 500);
+        memoryMessage.classList.remove("show");
+
+        setTimeout(() => {
+            memoryMessage.classList.add("show");
+        }, 50);
+    });
+});
 
 function moveNoButton() {
-    const maxX = window.innerWidth - noButton.offsetWidth - 30;
-    const maxY = window.innerHeight - noButton.offsetHeight - 30;
+    const container = document.querySelector(".final-buttons");
 
-    const x = Math.max(10, Math.random() * maxX);
-    const y = Math.max(10, Math.random() * maxY);
+    const maxX = Math.max(
+        100,
+        container.clientWidth - noButton.offsetWidth
+    );
 
-    noButton.style.position = "fixed";
+    const x = Math.random() * maxX - maxX / 2;
+
+    noButton.style.position = "relative";
     noButton.style.left = x + "px";
-    noButton.style.top = y + "px";
 }
 
 noButton.addEventListener("mouseenter", moveNoButton);
-noButton.addEventListener("touchstart", moveNoButton);
-noButton.addEventListener("click", moveNoButton);
+
+noButton.addEventListener("touchstart", event => {
+    event.preventDefault();
+    moveNoButton();
+});
+
+noButton.addEventListener("click", event => {
+    event.preventDefault();
+    moveNoButton();
+});
 
 yesButton.addEventListener("click", () => {
-    questionCard.style.display = "none";
-    successCard.style.display = "block";
+    finalMessage.textContent =
+        "Yeyyy! ♡ Terima kasih sudah membuka halaman ini 💗";
 
     createConfetti();
+
+    yesButton.style.transform = "scale(1.08)";
+
+    setTimeout(() => {
+        yesButton.style.transform = "";
+    }, 500);
 });
 
 function createConfetti() {
-    for (let i = 0; i < 120; i++) {
+    const symbols = ["♡", "♥", "✦", "✧", "❀"];
+
+    for (let i = 0; i < 100; i++) {
         const confetti = document.createElement("div");
 
         confetti.className = "confetti";
+
+        confetti.textContent =
+            symbols[Math.floor(Math.random() * symbols.length)];
+
         confetti.style.left = Math.random() * 100 + "vw";
-        confetti.style.animationDelay = Math.random() * 1.5 + "s";
-        confetti.style.width = 5 + Math.random() * 8 + "px";
-        confetti.style.height = 5 + Math.random() * 8 + "px";
-        confetti.style.background =
-            `hsl(${Math.random() * 360}, 80%, 70%)`;
+        confetti.style.fontSize =
+            10 + Math.random() * 18 + "px";
+
+        confetti.style.animationDelay =
+            Math.random() * 1.5 + "s";
 
         confettiContainer.appendChild(confetti);
 
         setTimeout(() => {
             confetti.remove();
-        }, 4000);
+        }, 5000);
     }
 }
+
+function createStars() {
+    const container = document.querySelector(".stars");
+
+    for (let i = 0; i < 60; i++) {
+        const star = document.createElement("div");
+
+        star.className = "star";
+        star.textContent = "✦";
+
+        star.style.left = Math.random() * 100 + "vw";
+        star.style.top = Math.random() * 100 + "vh";
+
+        star.style.fontSize =
+            4 + Math.random() * 10 + "px";
+
+        star.style.animationDelay =
+            Math.random() * 4 + "s";
+
+        star.style.animationDuration =
+            2 + Math.random() * 4 + "s";
+
+        container.appendChild(star);
+    }
+}
+
+function createPetal() {
+    const container = document.querySelector(".petals");
+    const petal = document.createElement("div");
+
+    const symbols = ["🌸", "❀", "♡", "✿"];
+
+    petal.className = "petal";
+
+    petal.textContent =
+        symbols[Math.floor(Math.random() * symbols.length)];
+
+    petal.style.left =
+        Math.random() * 100 + "vw";
+
+    petal.style.fontSize =
+        10 + Math.random() * 18 + "px";
+
+    petal.style.animationDuration =
+        5 + Math.random() * 7 + "s";
+
+    container.appendChild(petal);
+
+    setTimeout(() => {
+        petal.remove();
+    }, 13000);
+}
+
+function createGoldDots() {
+    const container = document.querySelector(".gold-dots");
+
+    for (let i = 0; i < 35; i++) {
+        const dot = document.createElement("div");
+
+        dot.className = "gold-dot";
+
+        dot.style.left =
+            Math.random() * 100 + "vw";
+
+        dot.style.top =
+            Math.random() * 100 + "vh";
+
+        dot.style.animationDelay =
+            Math.random() * 5 + "s";
+
+        container.appendChild(dot);
+    }
+}
+
+createStars();
+createGoldDots();
+
+setInterval(createPetal, 900);
