@@ -18,9 +18,10 @@ body {
 
 .background-video {
     position: fixed;
-    inset: 0;
-    width: 100%;
-    height: 100%;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
     object-fit: cover;
     z-index: -10;
     pointer-events: none;
@@ -29,7 +30,7 @@ body {
 .video-overlay {
     position: fixed;
     inset: 0;
-    background: rgba(67, 32, 39, 0.3);
+    background: rgba(255, 220, 240, 0.15);
     z-index: -9;
     pointer-events: none;
 }
@@ -38,7 +39,7 @@ body::after {
     content: "";
     position: fixed;
     inset: 0;
-    background: rgba(250, 239, 234, 0.22);
+    background: transparent;
     pointer-events: none;
     z-index: -8;
 }
@@ -255,34 +256,6 @@ main {
     }
 }
 
-.intro-text {
-    padding: 60px 45px;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-}
-
-.gold-label {
-    color: #b88b6d;
-    letter-spacing: 3px;
-    font-size: 11px;
-}
-
-.intro-text h3 {
-    font-family: "Cormorant Garamond", serif;
-    font-size: 50px;
-    line-height: 1;
-    color: #79545a;
-    margin: 18px 0 25px;
-}
-
-.intro-text p {
-    color: #766667;
-    line-height: 1.9;
-    font-size: 14px;
-    margin-bottom: 15px;
-}
-
 .timeline {
     position: relative;
     max-width: 900px;
@@ -427,10 +400,6 @@ main {
     border-radius: 20px;
 }
 
-.memory-message.show {
-    animation: heroAppear 0.5s ease;
-}
-
 .reasons-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
@@ -545,6 +514,12 @@ main {
     }
 }
 
+.gold-label {
+    color: #b88b6d;
+    font-size: 11px;
+    letter-spacing: 4px;
+}
+
 .final-card h2 {
     max-width: 650px;
     margin: 18px auto;
@@ -625,28 +600,37 @@ main {
     align-items: center;
     gap: 10px;
     padding: 8px 14px 8px 8px;
-    background: rgba(255, 248, 244, 0.9);
+    background: rgba(255, 248, 244, 0.94);
     border: 1px solid rgba(190, 151, 125, 0.4);
     border-radius: 50px;
-    box-shadow: 0 10px 30px rgba(60, 35, 40, 0.15);
-    backdrop-filter: blur(10px);
+    box-shadow: 0 10px 30px rgba(60, 35, 40, 0.2);
+    backdrop-filter: blur(12px);
 }
 
 .music-player button {
-    width: 38px;
-    height: 38px;
+    width: 42px;
+    height: 42px;
     border: none;
     border-radius: 50%;
     background: #a96f78;
     color: white;
     cursor: pointer;
-    font-size: 18px;
+    font-size: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: 0.3s ease;
+}
+
+.music-player button:hover {
+    transform: scale(1.08);
+    background: #915d67;
 }
 
 .music-info {
     display: flex;
     flex-direction: column;
-    padding-right: 5px;
+    min-width: 90px;
 }
 
 .music-info span {
@@ -658,6 +642,23 @@ main {
 .music-info small {
     font-size: 8px;
     color: #9a8180;
+    margin-top: 2px;
+}
+
+.music-volume {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.music-volume span {
+    font-size: 13px;
+}
+
+.music-volume input {
+    width: 65px;
+    accent-color: #a96f78;
+    cursor: pointer;
 }
 
 .gif-sticker {
@@ -789,6 +790,7 @@ footer {
 }
 
 @media (max-width: 900px) {
+
     .reasons-grid {
         grid-template-columns: repeat(3, 1fr);
     }
@@ -796,16 +798,22 @@ footer {
     .memory-grid {
         grid-template-columns: repeat(2, 1fr);
     }
+
 }
 
 @media (max-width: 700px) {
-    .music-info {
-        display: none;
-    }
 
     .music-player {
-        right: 15px;
-        top: 15px;
+        right: 12px;
+        top: 12px;
+    }
+
+    .music-info {
+        min-width: 75px;
+    }
+
+    .music-volume input {
+        width: 50px;
     }
 
     .gif-sticker {
@@ -828,10 +836,6 @@ footer {
 
     .intro-text {
         padding: 40px 20px;
-    }
-
-    .intro-text h3 {
-        font-size: 40px;
     }
 
     .timeline::before {
@@ -862,9 +866,23 @@ footer {
     .final-card {
         padding: 60px 20px;
     }
+
 }
 
 @media (max-width: 450px) {
+
+    .music-player {
+        padding-right: 8px;
+    }
+
+    .music-info {
+        display: none;
+    }
+
+    .music-volume {
+        display: none;
+    }
+
     .reasons-grid {
         grid-template-columns: 1fr;
     }
@@ -876,4 +894,5 @@ footer {
     .final-buttons {
         flex-direction: column;
     }
+
 }
