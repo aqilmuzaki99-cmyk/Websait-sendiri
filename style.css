@@ -19,10 +19,6 @@ body {
     align-items: center;
 }
 
-/* =========================
-   CARD
-========================= */
-
 .container {
     width: 100%;
     padding: 20px;
@@ -60,10 +56,6 @@ body {
     }
 }
 
-/* =========================
-   TEXT
-========================= */
-
 h1 {
     color: #d94680;
     margin-bottom: 15px;
@@ -88,10 +80,6 @@ h2 span {
     margin: 15px 0 25px;
 }
 
-/* =========================
-   HEART
-========================= */
-
 .top-heart {
     font-size: 65px;
 
@@ -99,38 +87,28 @@ h2 span {
         heartBeat 1.2s infinite,
         heartFloat 3s ease-in-out infinite;
 }
-
 @keyframes heartBeat {
     0%, 100% {
         transform: scale(1);
     }
-
     50% {
         transform: scale(1.2);
     }
 }
-
 @keyframes heartFloat {
     0%, 100% {
         margin-top: 0;
     }
-
     50% {
         margin-top: -10px;
     }
 }
-
-/* =========================
-   ROMANTIC ICON
-========================= */
-
 .romantic-image {
     font-size: 55px;
     margin: 10px;
 
     animation: spinSlow 5s linear infinite;
 }
-
 @keyframes spinSlow {
     from {
         transform: rotate(-5deg);
@@ -144,11 +122,6 @@ h2 span {
         transform: rotate(-5deg);
     }
 }
-
-/* =========================
-   BUTTON
-========================= */
-
 .buttons {
     display: flex;
     justify-content: center;
@@ -188,11 +161,6 @@ button {
 .no-button:hover {
     transform: scale(.95);
 }
-
-/* =========================
-   MUSIC
-========================= */
-
 .music-button {
     position: fixed;
     top: 20px;
@@ -207,11 +175,6 @@ button {
 
     box-shadow: 0 5px 20px rgba(0,0,0,.1);
 }
-
-/* =========================
-   STICKER
-========================= */
-
 .sticker {
     position: fixed;
     z-index: 10;
@@ -234,21 +197,18 @@ button {
 
     animation: float2 5s ease-in-out infinite;
 }
-
 .sticker3 {
     bottom: 15%;
     left: 8%;
 
     animation: float1 4.5s ease-in-out infinite;
 }
-
 .sticker4 {
     bottom: 10%;
     right: 10%;
 
     animation: spinSticker 5s linear infinite;
 }
-
 .sticker5 {
     top: 50%;
     right: 3%;
@@ -303,11 +263,6 @@ button {
         transform: translate(-15px, 10px);
     }
 }
-
-/* =========================
-   GIF TENOR
-========================= */
-
 .gif-sticker {
     position: fixed;
 
@@ -348,11 +303,6 @@ button {
             rotate(3deg);
     }
 }
-
-/* =========================
-   SUCCESS
-========================= */
-
 .success-card {
     display: none;
 }
@@ -386,10 +336,6 @@ button {
     font-size: 20px;
 }
 
-/* =========================
-   FLOATING HEARTS
-========================= */
-
 .heart {
     position: fixed;
 
@@ -421,10 +367,6 @@ button {
     }
 }
 
-/* =========================
-   CONFETTI
-========================= */
-
 .confetti {
     position: fixed;
 
@@ -448,10 +390,6 @@ button {
         opacity: 0;
     }
 }
-
-/* =========================
-   MOBILE
-========================= */
 
 @media (max-width: 600px) {
 
