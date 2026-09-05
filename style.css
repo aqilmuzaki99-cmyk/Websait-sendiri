@@ -67,7 +67,6 @@ body {
         opacity: 0;
         transform: scale(0.8) translateY(30px);
     }
-
     to {
         opacity: 1;
         transform: scale(1) translateY(0);
@@ -110,7 +109,6 @@ h2 span {
     0%, 100% {
         transform: scale(1);
     }
-
     50% {
         transform: scale(1.2);
     }
@@ -120,7 +118,6 @@ h2 span {
     0%, 100% {
         transform: translateY(0);
     }
-
     50% {
         transform: translateY(-10px);
     }
@@ -136,7 +133,6 @@ h2 span {
     0%, 100% {
         transform: translateY(0) rotate(-5deg);
     }
-
     50% {
         transform: translateY(-10px) rotate(5deg);
     }
@@ -201,7 +197,6 @@ button {
     0%, 100% {
         transform: translateY(0) rotate(-3deg);
     }
-
     50% {
         transform: translateY(-15px) rotate(3deg);
     }
@@ -248,7 +243,6 @@ button {
     0%, 100% {
         transform: translateY(0) rotate(-5deg);
     }
-
     50% {
         transform: translateY(-25px) rotate(5deg);
     }
@@ -258,7 +252,6 @@ button {
     0%, 100% {
         transform: translateY(0);
     }
-
     50% {
         transform: translateY(20px);
     }
@@ -266,9 +259,8 @@ button {
 
 @keyframes spinSticker {
     from {
-        transform: rotate(0deg);
+        transform: rotate(0);
     }
-
     to {
         transform: rotate(360deg);
     }
@@ -278,15 +270,12 @@ button {
     0%, 100% {
         transform: translate(0, 0);
     }
-
     25% {
         transform: translate(-20px, -15px);
     }
-
     50% {
         transform: translate(10px, -30px);
     }
-
     75% {
         transform: translate(-15px, 10px);
     }
@@ -338,10 +327,9 @@ button {
 
 @keyframes heartUp {
     from {
-        transform: translateY(0) rotate(0deg);
+        transform: translateY(0) rotate(0);
         opacity: 1;
     }
-
     to {
         transform: translateY(-110vh) rotate(360deg);
         opacity: 0;
@@ -363,31 +351,26 @@ button {
         opacity: 0;
     }
 }
+
 @media (max-width: 600px) {
     .card {
         padding: 30px 20px;
     }
-
     h1 {
         font-size: 27px;
     }
-
     h2 {
         font-size: 20px;
     }
-
     .buttons {
         flex-direction: column;
     }
-
     .buttons button {
         width: 100%;
     }
-
     .sticker {
         font-size: 30px;
     }
-
     .gif-sticker {
         width: 90px;
         right: 10px;
