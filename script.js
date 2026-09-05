@@ -56,7 +56,8 @@ function createConfetti() {
         confetti.style.animationDelay = Math.random() * 1.5 + "s";
         confetti.style.width = 5 + Math.random() * 8 + "px";
         confetti.style.height = 5 + Math.random() * 8 + "px";
-        confetti.style.background = `hsl(${Math.random() * 360}, 80%, 70%)`;
+        confetti.style.background =
+            `hsl(${Math.random() * 360}, 80%, 70%)`;
 
         confettiContainer.appendChild(confetti);
 
