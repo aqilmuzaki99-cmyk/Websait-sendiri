@@ -591,6 +591,31 @@ main {
     font-weight: 600;
 }
 
+.answer-box {
+    display: none;
+    width: 100%;
+    max-width: 600px;
+    margin: 25px auto 0;
+    padding: 18px 25px;
+    border-radius: 18px;
+    background: rgba(249, 233, 225, 0.9);
+    border: 1px solid rgba(184, 139, 109, 0.3);
+    color: #79545a;
+    font-family: "Cormorant Garamond", serif;
+    font-size: 21px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(70, 35, 40, 0.12);
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.answer-box.show {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
 .music-player {
     position: fixed;
     top: 20px;
@@ -790,7 +815,6 @@ footer {
 }
 
 @media (max-width: 900px) {
-
     .reasons-grid {
         grid-template-columns: repeat(3, 1fr);
     }
@@ -798,11 +822,9 @@ footer {
     .memory-grid {
         grid-template-columns: repeat(2, 1fr);
     }
-
 }
 
 @media (max-width: 700px) {
-
     .music-player {
         right: 12px;
         top: 12px;
@@ -867,10 +889,14 @@ footer {
         padding: 60px 20px;
     }
 
+    .answer-box {
+        width: 90%;
+        font-size: 19px;
+        padding: 15px 18px;
+    }
 }
 
 @media (max-width: 450px) {
-
     .music-player {
         padding-right: 8px;
     }
@@ -894,5 +920,4 @@ footer {
     .final-buttons {
         flex-direction: column;
     }
-
 }
