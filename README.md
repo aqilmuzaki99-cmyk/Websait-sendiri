@@ -1,18 +1,3 @@
-<?php
-if ($_SERVER["REQUEST_METHOD"] === "POST") {
-
-    $jawaban = $_POST["jawaban"] ?? "";
-    $waktu = date("Y-m-d H:i:s");
-
-    $data = "Jawaban: " . $jawaban . " | Waktu: " . $waktu . PHP_EOL;
-
-    file_put_contents("jawaban.txt", $data, FILE_APPEND);
-
-    echo "OK";
-    exit;
-}
-?>
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -26,37 +11,43 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
 <body>
 
-    <!-- BACKGROUND HEART -->
+    <!-- Floating Hearts -->
     <div class="hearts"></div>
 
-    <!-- STIKER ANIMASI -->
+    <!-- Stiker Animasi -->
     <div class="sticker sticker1">💗</div>
     <div class="sticker sticker2">🌸</div>
     <div class="sticker sticker3">💕</div>
     <div class="sticker sticker4">✨</div>
     <div class="sticker sticker5">🦋</div>
 
-    <!-- GIF TENOR -->
+    <!-- GIF -->
     <div class="gif-sticker">
-        <img src="kiss.gif" alt="GIF animasi">
+        <img src="kiss.gif" alt="GIF romantis">
     </div>
 
-    <!-- TOMBOL MUSIK -->
+    <!-- Tombol Musik -->
     <button id="musicButton" class="music-button">
         🎵 Musik
     </button>
 
-    <!-- BACKSOUND -->
+    <!-- Musik -->
     <audio id="backgroundMusic" loop>
         <source src="backsound.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- CARD UTAMA -->
+
+    <!-- =========================
+         HALAMAN PERTANYAAN
+    ========================== -->
+
     <main class="container">
 
         <div class="card" id="questionCard">
 
-            <div class="top-heart">💗</div>
+            <div class="top-heart">
+                💗
+            </div>
 
             <h1>Hai Kamu 👋</h1>
 
@@ -91,14 +82,20 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
         </div>
 
-        <!-- CARD BERHASIL -->
+
+        <!-- =========================
+             HALAMAN SUKSES
+        ========================== -->
+
         <div class="card success-card" id="successCard">
 
             <div class="success-heart">
                 💗
             </div>
 
-            <h1>Yeyyyy! 🥹💖</h1>
+            <h1>
+                Yeyyyy! 🥹💖
+            </h1>
 
             <h2>
                 Makasih yaaa ❤️
@@ -122,8 +119,10 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
 
     </main>
 
-    <!-- CONFETTI -->
+
+    <!-- Tempat Confetti -->
     <div id="confetti"></div>
+
 
     <script src="script.js"></script>
 
