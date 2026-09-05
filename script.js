@@ -4,8 +4,6 @@ const yesButton = document.getElementById("yesButton");
 const noButton = document.getElementById("noButton");
 
 const finalMessage = document.getElementById("finalMessage");
-const answerBox = document.getElementById("answerBox");
-
 const confettiContainer = document.getElementById("confetti");
 
 const musicButton = document.getElementById("musicButton");
@@ -67,8 +65,7 @@ musicButton.addEventListener("click", async () => {
 
         console.error("Gagal memutar musik:", error);
 
-        musicStatus.textContent =
-            "Musik tidak dapat diputar";
+        musicStatus.textContent = "Musik tidak dapat diputar";
 
     }
 
@@ -99,9 +96,7 @@ music.addEventListener("pause", () => {
 music.addEventListener("error", () => {
 
     musicButton.textContent = "⚠";
-
-    musicStatus.textContent =
-        "File lagu tidak ditemukan";
+    musicStatus.textContent = "File lagu tidak ditemukan";
 
 });
 
@@ -121,8 +116,7 @@ document.querySelectorAll(".memory-card").forEach(card => {
 
     card.addEventListener("click", () => {
 
-        memoryMessage.textContent =
-            card.dataset.message;
+        memoryMessage.textContent = card.dataset.message;
 
         memoryMessage.classList.remove("show");
 
@@ -139,132 +133,29 @@ document.querySelectorAll(".memory-card").forEach(card => {
 
 function moveNoButton() {
 
-    const container =
-        document.querySelector(".final-buttons");
+    const container = document.querySelector(".final-buttons");
 
     const maxX = Math.max(
         100,
         container.clientWidth - noButton.offsetWidth
     );
 
-    const x =
-        Math.random() * maxX - maxX / 2;
+    const x = Math.random() * maxX - maxX / 2;
 
     noButton.style.position = "relative";
-
-    noButton.style.left =
-        x + "px";
+    noButton.style.left = x + "px";
 
 }
 
 
-noButton.addEventListener(
-    "mouseenter",
-    moveNoButton
-);
+noButton.addEventListener("mouseenter", moveNoButton);
 
 
-noButton.addEventListener(
-    "touchstart",
-    event => {
+noButton.addEventListener("touchstart", event => {
 
-        event.preventDefault();
+    event.preventDefault();
 
-        moveNoButton();
-
-    }
-);
-
-
-function saveAnswer(answer) {
-
-    const waktu =
-        new Date().toLocaleString("id-ID");
-
-    const isiJawaban =
-        "================================\n" +
-        "          JAWABAN CONFESS\n" +
-        "================================\n\n" +
-        "Jawaban : " +
-        answer +
-        "\n" +
-        "Waktu   : " +
-        waktu +
-        "\n\n" +
-        "================================\n";
-
-    localStorage.setItem(
-        "jawaban_confess",
-        isiJawaban
-    );
-
-    const file =
-        new Blob(
-            [isiJawaban],
-            {
-                type: "text/plain;charset=utf-8"
-            }
-        );
-
-    const link =
-        document.createElement("a");
-
-    const url =
-        URL.createObjectURL(file);
-
-    link.href = url;
-
-    link.download =
-        "jawaban.txt";
-
-    document.body.appendChild(link);
-
-    link.click();
-
-    document.body.removeChild(link);
-
-    setTimeout(() => {
-
-        URL.revokeObjectURL(url);
-
-    }, 1000);
-
-
-    answerBox.textContent =
-        "Jawaban kamu: " + answer;
-
-    answerBox.classList.remove("show");
-
-    setTimeout(() => {
-
-        answerBox.classList.add("show");
-
-    }, 50);
-
-}
-
-
-yesButton.addEventListener("click", () => {
-
-    const jawaban =
-        "Mau! 💗";
-
-    finalMessage.textContent =
-        "Yeyyy! ♡ Terima kasih sudah membuka halaman ini 💗";
-
-    saveAnswer(jawaban);
-
-    createConfetti();
-
-    yesButton.style.transform =
-        "scale(1.08)";
-
-    setTimeout(() => {
-
-        yesButton.style.transform =
-            "";
-
-    }, 500);
+    moveNoButton();
 
 });
 
@@ -273,12 +164,25 @@ noButton.addEventListener("click", event => {
 
     event.preventDefault();
 
-    const jawaban =
-        "Pikir-pikir Dulu";
-
-    saveAnswer(jawaban);
-
     moveNoButton();
+
+});
+
+
+yesButton.addEventListener("click", () => {
+
+    finalMessage.textContent =
+        "Yeyyy! ♡ Terima kasih sudah membuka halaman ini 💗";
+
+    createConfetti();
+
+    yesButton.style.transform = "scale(1.08)";
+
+    setTimeout(() => {
+
+        yesButton.style.transform = "";
+
+    }, 500);
 
 });
 
@@ -295,35 +199,23 @@ function createConfetti() {
 
     for (let i = 0; i < 100; i++) {
 
-        const confetti =
-            document.createElement("div");
+        const confetti = document.createElement("div");
 
-        confetti.className =
-            "confetti";
+        confetti.className = "confetti";
 
         confetti.textContent =
-            symbols[
-                Math.floor(
-                    Math.random() *
-                    symbols.length
-                )
-            ];
+            symbols[Math.floor(Math.random() * symbols.length)];
 
         confetti.style.left =
             Math.random() * 100 + "vw";
 
         confetti.style.fontSize =
-            10 +
-            Math.random() * 18 +
-            "px";
+            10 + Math.random() * 18 + "px";
 
         confetti.style.animationDelay =
-            Math.random() * 1.5 +
-            "s";
+            Math.random() * 1.5 + "s";
 
-        confettiContainer.appendChild(
-            confetti
-        );
+        confettiContainer.appendChild(confetti);
 
         setTimeout(() => {
 
@@ -346,33 +238,24 @@ function createStars() {
         const star =
             document.createElement("div");
 
-        star.className =
-            "star";
+        star.className = "star";
 
-        star.textContent =
-            "✦";
+        star.textContent = "✦";
 
         star.style.left =
-            Math.random() * 100 +
-            "vw";
+            Math.random() * 100 + "vw";
 
         star.style.top =
-            Math.random() * 100 +
-            "vh";
+            Math.random() * 100 + "vh";
 
         star.style.fontSize =
-            4 +
-            Math.random() * 10 +
-            "px";
+            4 + Math.random() * 10 + "px";
 
         star.style.animationDelay =
-            Math.random() * 4 +
-            "s";
+            Math.random() * 4 + "s";
 
         star.style.animationDuration =
-            2 +
-            Math.random() * 4 +
-            "s";
+            2 + Math.random() * 4 + "s";
 
         container.appendChild(star);
 
@@ -396,30 +279,19 @@ function createPetal() {
         "✿"
     ];
 
-    petal.className =
-        "petal";
+    petal.className = "petal";
 
     petal.textContent =
-        symbols[
-            Math.floor(
-                Math.random() *
-                symbols.length
-            )
-        ];
+        symbols[Math.floor(Math.random() * symbols.length)];
 
     petal.style.left =
-        Math.random() * 100 +
-        "vw";
+        Math.random() * 100 + "vw";
 
     petal.style.fontSize =
-        10 +
-        Math.random() * 18 +
-        "px";
+        10 + Math.random() * 18 + "px";
 
     petal.style.animationDuration =
-        5 +
-        Math.random() * 7 +
-        "s";
+        5 + Math.random() * 7 + "s";
 
     container.appendChild(petal);
 
@@ -442,20 +314,16 @@ function createGoldDots() {
         const dot =
             document.createElement("div");
 
-        dot.className =
-            "gold-dot";
+        dot.className = "gold-dot";
 
         dot.style.left =
-            Math.random() * 100 +
-            "vw";
+            Math.random() * 100 + "vw";
 
         dot.style.top =
-            Math.random() * 100 +
-            "vh";
+            Math.random() * 100 + "vh";
 
         dot.style.animationDelay =
-            Math.random() * 5 +
-            "s";
+            Math.random() * 5 + "s";
 
         container.appendChild(dot);
 
@@ -468,9 +336,6 @@ createStars();
 
 createGoldDots();
 
-setInterval(
-    createPetal,
-    900
-);
+setInterval(createPetal, 900);
 
 updateMusicButton();
