@@ -1,56 +1,138 @@
 const startButton = document.getElementById("startButton");
+
 const yesButton = document.getElementById("yesButton");
 const noButton = document.getElementById("noButton");
+
 const finalMessage = document.getElementById("finalMessage");
 const confettiContainer = document.getElementById("confetti");
+
 const musicButton = document.getElementById("musicButton");
 const music = document.getElementById("music");
+const musicStatus = document.getElementById("musicStatus");
+const volumeControl = document.getElementById("volumeControl");
+
 const memoryMessage = document.getElementById("memoryMessage");
 
+
 startButton.addEventListener("click", () => {
+
     document.getElementById("final").scrollIntoView({
         behavior: "smooth"
     });
+
 });
 
-let musicPlaying = false;
 
-musicButton.addEventListener("click", () => {
-    if (musicPlaying) {
-        music.pause();
-        musicButton.textContent = "♫";
-        musicPlaying = false;
+music.volume = 0.7;
+
+
+function updateMusicButton() {
+
+    if (music.paused) {
+
+        musicButton.textContent = "▶";
+        musicStatus.textContent = "Klik untuk memutar";
+
     } else {
-        music.play()
-            .then(() => {
-                musicButton.textContent = "❚❚";
-                musicPlaying = true;
-            })
-            .catch(() => {
-                musicButton.textContent = "♫";
-            });
+
+        musicButton.textContent = "❚❚";
+        musicStatus.textContent = "Sedang diputar ♫";
+
     }
+
+}
+
+
+musicButton.addEventListener("click", async () => {
+
+    try {
+
+        if (music.paused) {
+
+            await music.play();
+
+            updateMusicButton();
+
+        } else {
+
+            music.pause();
+
+            updateMusicButton();
+
+        }
+
+    } catch (error) {
+
+        console.error("Gagal memutar musik:", error);
+
+        musicStatus.textContent = "Musik tidak dapat diputar";
+
+    }
+
 });
+
+
+volumeControl.addEventListener("input", () => {
+
+    music.volume = volumeControl.value;
+
+});
+
+
+music.addEventListener("play", () => {
+
+    updateMusicButton();
+
+});
+
+
+music.addEventListener("pause", () => {
+
+    updateMusicButton();
+
+});
+
+
+music.addEventListener("error", () => {
+
+    musicButton.textContent = "⚠";
+    musicStatus.textContent = "File lagu tidak ditemukan";
+
+});
+
 
 document.querySelectorAll(".reason-card").forEach(card => {
+
     card.addEventListener("click", () => {
+
         card.classList.toggle("flipped");
+
     });
+
 });
 
+
 document.querySelectorAll(".memory-card").forEach(card => {
+
     card.addEventListener("click", () => {
+
         memoryMessage.textContent = card.dataset.message;
 
         memoryMessage.classList.remove("show");
 
         setTimeout(() => {
+
             memoryMessage.classList.add("show");
+
         }, 50);
+
     });
+
 });
 
+
 function moveNoButton() {
+
     const container = document.querySelector(".final-buttons");
 
     const maxX = Math.max(
@@ -62,21 +144,33 @@ function moveNoButton() {
 
     noButton.style.position = "relative";
     noButton.style.left = x + "px";
+
 }
+
 
 noButton.addEventListener("mouseenter", moveNoButton);
 
+
 noButton.addEventListener("touchstart", event => {
+
     event.preventDefault();
+
     moveNoButton();
+
 });
+
 
 noButton.addEventListener("click", event => {
+
     event.preventDefault();
+
     moveNoButton();
+
 });
 
+
 yesButton.addEventListener("click", () => {
+
     finalMessage.textContent =
         "Yeyyy! ♡ Terima kasih sudah membuka halaman ini 💗";
 
@@ -85,14 +179,26 @@ yesButton.addEventListener("click", () => {
     yesButton.style.transform = "scale(1.08)";
 
     setTimeout(() => {
+
         yesButton.style.transform = "";
+
     }, 500);
+
 });
 
+
 function createConfetti() {
-    const symbols = ["♡", "♥", "✦", "✧", "❀"];
+
+    const symbols = [
+        "♡",
+        "♥",
+        "✦",
+        "✧",
+        "❀"
+    ];
 
     for (let i = 0; i < 100; i++) {
+
         const confetti = document.createElement("div");
 
         confetti.className = "confetti";
@@ -100,7 +206,9 @@ function createConfetti() {
         confetti.textContent =
             symbols[Math.floor(Math.random() * symbols.length)];
 
-        confetti.style.left = Math.random() * 100 + "vw";
+        confetti.style.left =
+            Math.random() * 100 + "vw";
+
         confetti.style.fontSize =
             10 + Math.random() * 18 + "px";
 
@@ -110,22 +218,35 @@ function createConfetti() {
         confettiContainer.appendChild(confetti);
 
         setTimeout(() => {
+
             confetti.remove();
+
         }, 5000);
+
     }
+
 }
 
+
 function createStars() {
-    const container = document.querySelector(".stars");
+
+    const container =
+        document.querySelector(".stars");
 
     for (let i = 0; i < 60; i++) {
-        const star = document.createElement("div");
+
+        const star =
+            document.createElement("div");
 
         star.className = "star";
+
         star.textContent = "✦";
 
-        star.style.left = Math.random() * 100 + "vw";
-        star.style.top = Math.random() * 100 + "vh";
+        star.style.left =
+            Math.random() * 100 + "vw";
+
+        star.style.top =
+            Math.random() * 100 + "vh";
 
         star.style.fontSize =
             4 + Math.random() * 10 + "px";
@@ -137,14 +258,26 @@ function createStars() {
             2 + Math.random() * 4 + "s";
 
         container.appendChild(star);
+
     }
+
 }
 
-function createPetal() {
-    const container = document.querySelector(".petals");
-    const petal = document.createElement("div");
 
-    const symbols = ["🌸", "❀", "♡", "✿"];
+function createPetal() {
+
+    const container =
+        document.querySelector(".petals");
+
+    const petal =
+        document.createElement("div");
+
+    const symbols = [
+        "🌸",
+        "❀",
+        "♡",
+        "✿"
+    ];
 
     petal.className = "petal";
 
@@ -163,15 +296,23 @@ function createPetal() {
     container.appendChild(petal);
 
     setTimeout(() => {
+
         petal.remove();
+
     }, 13000);
+
 }
 
+
 function createGoldDots() {
-    const container = document.querySelector(".gold-dots");
+
+    const container =
+        document.querySelector(".gold-dots");
 
     for (let i = 0; i < 35; i++) {
-        const dot = document.createElement("div");
+
+        const dot =
+            document.createElement("div");
 
         dot.className = "gold-dot";
 
@@ -185,10 +326,16 @@ function createGoldDots() {
             Math.random() * 5 + "s";
 
         container.appendChild(dot);
+
     }
+
 }
 
+
 createStars();
+
 createGoldDots();
 
 setInterval(createPetal, 900);
+
+updateMusicButton();
